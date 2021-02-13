@@ -1,14 +1,26 @@
-import React from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+type Props = {
+  name?: string,
+}
+
+const App: FC<Props> = ({name}) => {
+  const [fileName, setFileName] = useState("")
+
+  useEffect(() => {
+    if (!!name) {
+      setFileName(name);
+    }
+  },[name]);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>{fileName}</code> and save to reload.
         </p>
         <a
           className="App-link"
