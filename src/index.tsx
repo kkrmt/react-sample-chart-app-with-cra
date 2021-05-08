@@ -4,12 +4,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { counterReducer, initialState } from './reducer';
+
+const store = createStore(counterReducer, initialState);
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App name={"testのfileですよ"}/>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App name={"This is a test App."}/>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,6 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import ColorfulBeads from './containers/molecules/ColorfulBeads';
+import CounterBoard from './containers/organisms/CounterBoard';
 
 type Props = {
   name?: string,
@@ -17,8 +19,11 @@ const App: FC<Props> = ({name}) => {
 
   return (
     <div className="App">
-      <p>HPです</p>
-      
+    <header>
+      <h1>{fileName}</h1>
+    </header>
+    <CounterBoard />
+    <ColorfulBeads />
     </div>
   );
 }
