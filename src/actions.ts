@@ -1,7 +1,8 @@
 export const CounterActionType = {
   ADD: 'ADD',
   DECREMENT: 'DECREMENT',
-  INCREMENT: 'INCREMENT'
+  INCREMENT: 'INCREMENT',
+  DOUBLEINCREMENT: 'DOUBLEINCREMENT',
 };
   
 type ValueOf<T> = T;
@@ -23,4 +24,8 @@ export const decrement = (): CounterAction => ({
   
 export const increment = (): CounterAction => ({
   type: CounterActionType.INCREMENT,
+});
+
+export const doubleIncrement = (): CounterAction => ({
+  type: CounterActionType.DOUBLEINCREMENT,
 });

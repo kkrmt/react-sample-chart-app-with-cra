@@ -8,16 +8,18 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { counterReducer, initialState } from './reducer';
 
+// from reducer => redux
+// なぜ必要? Appでglobalに参照されるstoreをcreateするため
 const store = createStore(counterReducer, initialState);
 
 ReactDOM.render(
-  <React.StrictMode>
+//   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App name={"This is a test App."}/>
       </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 

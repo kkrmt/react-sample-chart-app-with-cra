@@ -5,11 +5,13 @@ import 'semantic-ui-css/semantic.min.css';
 import '../../index.css';
 
 const BULK_UNIT = 10;
+
 type Props = {
   count?: number;
   add?: (amount: number) => void;
   decrement?: () => void;
   increment?: () => void;
+  doubleIncrement?: () => void;
 };
 
 const CounterBoard: FC<Props> = ({
@@ -17,6 +19,7 @@ const CounterBoard: FC<Props> = ({
   add = () => undefined,
   decrement = () => undefined,
   increment = () => undefined,
+  doubleIncrement = () => undefined,
 }) => (
   <Card>
     <Statistic className="number-board">
@@ -24,12 +27,19 @@ const CounterBoard: FC<Props> = ({
       <Statistic.Value>{count}</Statistic.Value>
     </Statistic>
     <Card.Content>
-      <div className="ui two buttons">
+      <div className="ui three buttons">
         <Button color="red" onClick={decrement}>
           -1
         </Button>
         <Button color="green" onClick={increment}>
           +1
+        </Button>
+        <Button color="black" onClick={() => {
+          console.log("1. presentational component onCliked", "doubleIncrement");
+          doubleIncrement();
+          }
+        }>
+          +2
         </Button>
       </div>
       <div className="fluid-button">
