@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { add, decrement, doubleIncrement, increment } from '../../actions';
-import { CounterState } from '../../reducer';
+import { counterSlice, CounterState } from '../../features/counter';
 import CounterBoard from '../../components/organisms/CounterBoard';
 
 const EnhancedCounterBoard: FC = () => {
@@ -13,15 +12,18 @@ const EnhancedCounterBoard: FC = () => {
   // dispatcherはglobal state更新が必要なcomponent毎に都度都度このhooksで呼び出す
   const dispatch = useDispatch();
 
+  // counterSliceの場合必要になる
+  const { added, decremented, incremented, doubleIncremented } = counterSlice.actions;
+
   return (
     <CounterBoard
       count={count}
-      add={(amount: number) => dispatch(add(amount))}
-      decrement={() => dispatch(decrement())}
-      increment={() => dispatch(increment())}
+      add={(amount: number) => dispatch(added(amount))}
+      decrement={() => dispatch(decremented())}
+      increment={() => dispatch(incremented())}
       doubleIncrement={() => {
         console.log("2. container component", "doubleIncrement");
-        dispatch(doubleIncrement())
+        dispatch(doubleIncremented())
       }}
     />
   );

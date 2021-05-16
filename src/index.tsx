@@ -6,20 +6,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { counterReducer, initialState } from './reducer';
+import { counterSlice } from './features/counter';
+import { configureStore } from '@reduxjs/toolkit';
 
 // from reducer => redux
 // なぜ必要? Appでglobalに参照されるstoreをcreateするため
-const store = createStore(counterReducer, initialState);
+// const store = createStore(counterReducer, initialState);
+
+const store = configureStore({reducer: counterSlice.reducer});
 
 ReactDOM.render(
-//   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App name={"This is a test App."}/>
       </BrowserRouter>
     </Provider>,
-  // </React.StrictMode>,
   document.getElementById('root')
 );
 
