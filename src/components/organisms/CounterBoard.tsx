@@ -6,7 +6,7 @@ import '../../index.css';
 
 const BULK_UNIT = 10;
 
-type Props = {
+export type CounterBoardProps = {
   count?: number;
   add?: (amount: number) => void;
   decrement?: () => void;
@@ -14,7 +14,7 @@ type Props = {
   doubleIncrement?: () => void;
 };
 
-const CounterBoard: FC<Props> = ({
+const CounterBoard: FC<CounterBoardProps> = ({
   count = 0,
   add = () => undefined,
   decrement = () => undefined,

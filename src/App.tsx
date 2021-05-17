@@ -1,8 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import ColorfulBeads from './containers/molecules/ColorfulBeads';
-import CounterBoard from './containers/organisms/CounterBoard';
+import EnhancedCounterWidget from './containers/templates/CounterWidget';
 
 type Props = {
   name?: string,
@@ -22,8 +21,7 @@ const App: FC<Props> = ({name}) => {
     <header>
       <h1>{fileName}</h1>
     </header>
-    <CounterBoard />
-    <ColorfulBeads />
+    <EnhancedCounterWidget />
     </div>
   );
 }
